@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>GitHub Collaboration Workflow</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 2rem; }
+h1, h2, h3 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+code { background-color: rgba(27,31,35,0.05); padding: 0.2em 0.4em; border-radius: 3px; font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace; }
+pre { background-color: #f6f8fa; padding: 16px; overflow: auto; border-radius: 3px; }
+pre code { background-color: transparent; padding: 0; }
+.important { padding: 1rem; border-left: 4px solid #0366d6; background-color: #f1f8ff; margin: 1rem 0; }
+</style>
+</head>
+<body>
+<h1>GitHub Collaboration Workflow</h1>
+<p>Welcome to the project! To keep our codebase stable and avoid conflicts, please follow this simple checklist when working on the project.</p>
+<div class='important'>
+  <strong>Golden Rule</strong>: Never commit or push directly to the <code>main</code> branch. Always use a separate branch for your work.
+</div>
+
+<h2>1. Before You Start Working</h2>
+<p>Always make sure your local repository is up to date before making any new changes.</p>
+<ul>
+  <li>Switch to the main branch: <pre><code>git checkout main</code></pre></li>
+  <li>Pull the latest changes from the remote repository: <pre><code>git pull origin main</code></pre></li>
+</ul>
+
+<h2>2. Creating a Branch</h2>
+<p>Create a new branch for the specific feature or bug you are working on.</p>
+<ul>
+  <li>Create and switch to a new branch: <pre><code>git checkout -b your-branch-name</code></pre></li>
+</ul>
+<p><em>(Tip: Use descriptive names like <code>feature-login</code>, <code>bugfix-header</code>, or <code>update-terms</code>)</em></p>
+
+<h2>3. The Pre-Commit Checklist</h2>
+<p>Before you commit your changes, review this checklist:</p>
+<ul>
+  <li><input type='checkbox' disabled> <strong>Tested locally?</strong> Have I tested my changes on my local machine?</li>
+  <li><input type='checkbox' disabled> <strong>No breaking errors?</strong> Does the application still run properly without new errors?</li>
+  <li><input type='checkbox' disabled> <strong>Focused changes?</strong> Did I only modify the files necessary for this specific feature/fix?</li>
+  <li><input type='checkbox' disabled> <strong>Clean code?</strong> Did I remove any temporary debugging code (like <code>console.log</code> or <code>var_dump</code>)?</li>
+</ul>
+
+<h2>4. Committing Your Changes</h2>
+<p>Once your checklist is complete, save your work with a clear, descriptive message.</p>
+<ul>
+  <li>Stage your changes: <pre><code>git add .</code></pre></li>
+  <li>Commit your changes: <pre><code>git commit -m "Briefly describe what you changed"</code></pre></li>
+</ul>
+
+<h2>5. Pushing Your Branch</h2>
+<p>Push your newly created branch to GitHub so others can see and review it.</p>
+<ul>
+  <li>Push the branch: <pre><code>git push origin your-branch-name</code></pre></li>
+</ul>
+
+<h2>6. Merging into Main (Pull Requests)</h2>
+<p>Once your branch is pushed, it needs to be merged into <code>main</code> using a Pull Request.</p>
+<ol>
+  <li>Go to the project's GitHub repository page in your web browser.</li>
+  <li>You will see a green prompt to <strong>"Compare & pull request"</strong> for your newly pushed branch. Click it.</li>
+  <li>Fill out the Pull Request details, describing what you changed.</li>
+  <li><strong>Wait for review</strong>: Ask another collaborator to review your Pull Request.</li>
+  <li><strong>Merge</strong>: Once approved, click the "Merge pull request" button on GitHub to safely merge your code into <code>main</code>.</li>
+</ol>
+</body>
+</html>
