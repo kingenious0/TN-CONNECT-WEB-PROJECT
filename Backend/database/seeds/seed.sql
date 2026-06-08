@@ -1,0 +1,11 @@
+-- ============================================
+-- TN Connect — Seed Data
+-- PostgreSQL Seed: seed.sql
+-- ============================================
+-- Run: psql -U postgres -d tn_connect_db -f database/seeds/seed.sql
+
+-- Example seed data (uncomment when tables are created):
+--
+-- INSERT INTO users (email, phone, password_hash, first_name, last_name, role, is_active, email_verified)
+-- VALUES
+--   ('admin@tnconnect.com', '+234800000000', '$2a$12$placeholder', 'Admin', 'User', 'admin', true, true);

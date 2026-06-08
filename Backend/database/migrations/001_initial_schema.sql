@@ -1,0 +1,44 @@
+-- ============================================
+-- TN Connect — Initial Database Schema
+-- PostgreSQL Migration: 001_initial_schema.sql
+-- ============================================
+-- Run this against your PostgreSQL database:
+--   psql -U postgres -d tn_connect_db -f database/migrations/001_initial_schema.sql
+
+-- Enable UUID generation
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- ============================================
+-- Tables will be created here as modules are built
+-- ============================================
+
+-- Example structure (uncomment and modify when ready):
+--
+-- CREATE TABLE users (
+--   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+--   email VARCHAR(255) UNIQUE NOT NULL,
+--   phone VARCHAR(20) UNIQUE,
+--   password_hash VARCHAR(255) NOT NULL,
+--   first_name VARCHAR(100),
+--   last_name VARCHAR(100),
+--   role VARCHAR(20) DEFAULT 'member',
+--   is_active BOOLEAN DEFAULT true,
+--   email_verified BOOLEAN DEFAULT false,
+--   phone_verified BOOLEAN DEFAULT false,
+--   created_at TIMESTAMPTZ DEFAULT NOW(),
+--   updated_at TIMESTAMPTZ DEFAULT NOW()
+-- );
+--
+-- CREATE TABLE audit_logs (
+--   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+--   user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+--   action VARCHAR(100) NOT NULL,
+--   entity VARCHAR(100),
+--   entity_id UUID,
+--   details JSONB,
+--   ip_address VARCHAR(45),
+--   created_at TIMESTAMPTZ DEFAULT NOW()
+-- );
+--
+-- CREATE INDEX idx_audit_logs_user_id ON audit_logs(user_id);
+-- CREATE INDEX idx_audit_logs_created_at ON audit_logs(created_at);

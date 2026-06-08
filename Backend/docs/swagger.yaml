@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: TN Connect API
+  description: Backend API for the TN Connect platform
+  version: 1.0.0
+  contact:
+    name: TN Connect Team
+
+servers:
+  - url: http://localhost:5000/api
+    description: Development server
+
+tags:
+  - name: Health
+    description: Health check endpoints
+  - name: Auth
+    description: Authentication & authorization
+  - name: OTP
+    description: One-time password management
+  - name: Members
+    description: Member management
+  - name: Admins
+    description: Admin user management
+  - name: Dashboard
+    description: Dashboard analytics
+  - name: Exports
+    description: Data export
+  - name: Notifications
+    description: Notification management
+  - name: Audit Logs
+    description: System activity logs
+  - name: Contacts
+    description: Contact form submissions
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health check
+      description: Returns server health status
+      responses:
+        '200':
+          description: Server is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  uptime:
+                    type: number
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+        data:
+          type: object

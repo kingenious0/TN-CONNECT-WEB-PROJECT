@@ -1,0 +1,46 @@
+/**
+ * Winston Logger
+ * Structured logging with file and console transports
+ */
+const winston = require('winston');
+const path = require('path');
+const env = require('../config/env');
+
+const logger = winston.createLogger({
+  level: env.logLevel,
+  format: winston.format.combine(
+    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    winston.format.errors({ stack: true }),
+    winston.format.json()
+  ),
+  defaultMeta: { service: 'tn-connect-api' },
+  transports: [
+    // Write errors to error.log
+    new winston.transports.File({
+      filename: path.join(__dirname, '../../logs/error.log'),
+      level: 'error',
+      maxsize: 5242880, // 5MB
+      maxFiles: 5,
+    }),
+    // Write all logs to combined.log
+    new winston.transports.File({
+      filename: path.join(__dirname, '../../logs/combined.log'),
+      maxsize: 5242880,
+      maxFiles: 5,
+    }),
+  ],
+});
+
+// Pretty console output in development
+if (env.nodeEnv === 'development') {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.simple()
+      ),
+    })
+  );
+}
+
+module.exports = { logger };
