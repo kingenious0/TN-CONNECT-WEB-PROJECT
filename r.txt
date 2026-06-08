@@ -1,0 +1,55 @@
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   ├── database.js
+│   │   ├── redis.js
+│   │   ├── jwt.js
+│   │   ├── sms.js
+│   │   ├── mail.js
+│   │   └── env.js
+│   │
+│   ├── modules/
+│   │
+│   │   ├── auth/
+│   │   ├── otp/
+│   │   ├── members/
+│   │   ├── admins/
+│   │   ├── dashboard/
+│   │   ├── exports/
+│   │   ├── notifications/
+│   │   ├── auditLogs/
+│   │   ├── contacts/
+│   │   └── health/
+│   │
+│   ├── middlewares/
+│   │   ├── auth.middleware.js
+│   │   ├── admin.middleware.js
+│   │   ├── role.middleware.js
+│   │   ├── validation.middleware.js
+│   │   ├── rateLimit.middleware.js
+│   │   └── error.middleware.js
+│   │
+│   ├── routes/
+│   │
+│   ├── services/
+│   │
+│   ├── utils/
+│   │
+│   ├── validations/
+│   │
+│   ├── jobs/
+│   │
+│   └── app.js
+│
+├── prisma/
+│
+├── docs/
+│   └── swagger.yaml
+│
+├── .env
+├── server.js
+└── package.json
+this is the backend structure work on it and setup for me we will later work on it. use the backend folder
+we are using postgreSQL for database no prisma.we are only setting up not building for now.
