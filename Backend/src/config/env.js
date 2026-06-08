@@ -56,6 +56,15 @@ const env = {
     from: process.env.MAIL_FROM,
   },
 
+  // OTP
+  otp: {
+    expirySeconds: parseInt(process.env.OTP_EXPIRY_SECONDS, 10) || 300,
+    maxAttempts: parseInt(process.env.OTP_MAX_ATTEMPTS, 10) || 5,
+  },
+
+  // Admin Session
+  adminSessionExpiresIn: process.env.ADMIN_SESSION_EXPIRES_IN || '1h',
+
   // Rate Limiting
   rateLimit: {
     windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10) || 900000,

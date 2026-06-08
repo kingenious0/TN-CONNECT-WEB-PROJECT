@@ -4,7 +4,8 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 const { errorHandler, notFound } = require('./middlewares/error.middleware');
-// const { apiLimiter } = require('./middlewares/rateLimit.middleware');
+const { apiLimiter } = require('./middlewares/rateLimit.middleware');
+const routes = require('./routes');
 
 const app = express();
 
@@ -19,14 +20,13 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// ──────────────── Rate Limiting (uncomment when ready) ────────────────
-// app.use('/api', apiLimiter);
+// ──────────────── Rate Limiting ────────────────
+app.use('/api', apiLimiter);
 
 // ──────────────── API Routes ────────────────
-// Routes will be mounted here as modules are built
-// e.g. app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api', routes);
 
-// Health check
+// Health check (basic — kept at top level for simplicity)
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
