@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 function PasswordStrength({ value }) {
@@ -56,6 +57,7 @@ function TogglePassword({ visible, onClick }) {
 }
 
 export default function RegistrationPage() {
+  const router = useRouter();
   const [form, setForm] = useState({
     fullName: "",
     schoolName: "",
@@ -79,7 +81,8 @@ export default function RegistrationPage() {
     setTimeout(() => {
       setSubmitting(false);
       btn.disabled = false;
-    }, 2000);
+      router.push("/otp");
+    }, 1500);
   }
 
   return (

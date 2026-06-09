@@ -1,4 +1,49 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
+
+function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [hasStarted, end, duration]);
+
+  const formatNumber = (num) => {
+    return num.toLocaleString();
+  };
+
+  return <span ref={elementRef}>{formatNumber(count)}{suffix}</span>;
+}
 
 export default function HomePage() {
   return (
@@ -40,15 +85,21 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl border border-surface-border p-10 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="flex flex-col items-center text-center">
-              <div className="text-navy font-headline-lg text-5xl mb-3">15,000+</div>
+              <div className="text-navy font-headline-lg text-5xl mb-3">
+                <AnimatedCounter end={15000} suffix="+" />
+              </div>
               <div className="text-secondary font-semibold uppercase tracking-widest text-sm">Active Members</div>
             </div>
             <div className="flex flex-col items-center text-center border-y md:border-y-0 md:border-x border-surface-border py-8 md:py-0">
-              <div className="text-navy font-headline-lg text-5xl mb-3">50+</div>
+              <div className="text-navy font-headline-lg text-5xl mb-3">
+                <AnimatedCounter end={50} suffix="+" />
+              </div>
               <div className="text-secondary font-semibold uppercase tracking-widest text-sm">Partner Institutions</div>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="text-navy font-headline-lg text-5xl mb-3">100%</div>
+              <div className="text-navy font-headline-lg text-5xl mb-3">
+                <AnimatedCounter end={100} suffix="%" />
+              </div>
               <div className="text-secondary font-semibold uppercase tracking-widest text-sm">Secure Profiles</div>
             </div>
           </div>
@@ -124,9 +175,9 @@ export default function HomePage() {
                   <span className="font-semibold text-navy">Global academic perspective</span>
                 </div>
               </div>
-              <button className="bg-navy text-white px-10 py-4 rounded-lg font-bold hover:bg-secondary transition-all">
+              <Link href="/about#directors" className="inline-block bg-navy text-white px-10 py-4 rounded-lg font-bold hover:bg-secondary transition-all text-center">
                 Meet the Directors
-              </button>
+              </Link>
             </div>
             <div className="lg:w-1/2 relative">
               <div className="absolute -top-6 -left-6 w-full h-full border-4 border-secondary rounded-2xl z-0"></div>

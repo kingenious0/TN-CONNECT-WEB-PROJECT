@@ -120,7 +120,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Partner Institutions */}
+          {/* Connected Institutions */}
       <section className="py-24 bg-white">
         <div className="container-content max-w-[1280px]">
           <div className="text-center mb-16">
@@ -142,6 +142,53 @@ export default function AboutPage() {
                 <div className="font-headline-md text-sm md:text-base text-navy font-bold">{uni.name}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet the Directors */}
+      <section id="directors" className="py-24 bg-surface-container-low scroll-mt-20">
+        <div className="container-content max-w-[1280px]">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-lg text-3xl md:text-4xl text-navy mb-4">Meet the Directors</h2>
+            <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+            <p className="font-body-lg text-navy/60 max-w-2xl mx-auto">
+              The driving force behind TN CONNECT's technical innovation and operational excellence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* Director 1 */}
+            <div className="bg-white rounded-2xl border border-surface-border p-8 shadow-md flex flex-col sm:flex-row items-center gap-8 card-hover">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden shrink-0 border border-surface-border">
+                <img src="/director_tech.png" alt="Director of Technology" className="w-full h-full object-cover" />
+              </div>
+              <div className="text-center sm:text-left space-y-3">
+                <div>
+                  <h3 className="font-headline-md text-xl text-navy">Dr. Evelyn Ampadu</h3>
+                  <p className="text-sm font-label-bold text-primary uppercase tracking-wider">Director of Technology</p>
+                </div>
+                <p className="text-sm text-navy/70 leading-relaxed">
+                  Leading technical vision, platform infrastructure security, and system scaling architecture to ensure reliable performance.
+                </p>
+              </div>
+            </div>
+
+            {/* Director 2 */}
+            <div className="bg-white rounded-2xl border border-surface-border p-8 shadow-md flex flex-col sm:flex-row items-center gap-8 card-hover">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden shrink-0 border border-surface-border">
+                <img src="/director_ops.png" alt="Director of Operations" className="w-full h-full object-cover" />
+              </div>
+              <div className="text-center sm:text-left space-y-3">
+                <div>
+                  <h3 className="font-headline-md text-xl text-navy">Mr. Marcus Owusu</h3>
+                  <p className="text-sm font-label-bold text-secondary uppercase tracking-wider">Director of Operations</p>
+                </div>
+                <p className="text-sm text-navy/70 leading-relaxed">
+                  Overseeing institutional relationships, student community operations, partnership onboarding, and policy alignment.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
