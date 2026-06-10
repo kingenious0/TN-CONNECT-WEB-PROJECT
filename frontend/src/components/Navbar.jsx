@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 function Navbar({ currentPage, navigateTo }) {
   const [isOpen, setIsOpen] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
+  const [mobileAuthOpen, setMobileAuthOpen] = useState(false)
   const dropdownRef = useRef(null)
   const dropdownTimeout = useRef(null)
 
@@ -169,36 +170,64 @@ function Navbar({ currentPage, navigateTo }) {
             </button>
           ))}
 
-          {/* Auth Section Divider */}
+          {/* Get Started Dropdown */}
           <div className="my-2 border-t border-slate-100"></div>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-bold px-3 mb-1">Account</p>
-          
-          {authLinks.map((item) => (
-            <button 
-              key={item.id}
-              onClick={() => {
-                navigateTo(item.id)
-                setIsOpen(false)
-              }}
-              className={`flex items-center gap-3 py-3 px-3 rounded-xl transition-all cursor-pointer w-full ${
-                currentPage === item.id 
-                  ? 'bg-primary/5 text-primary' 
-                  : 'text-navy/70 hover:bg-slate-50'
-              }`}
-            >
+          <button
+            onClick={() => setMobileAuthOpen(!mobileAuthOpen)}
+            className={`flex items-center justify-between w-full py-3 px-3 rounded-xl cursor-pointer transition-all ${
+              isAuthPage ? 'text-primary bg-primary/5' : 'text-navy/70'
+            }`}
+          >
+            <div className="flex items-center gap-3">
               <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                currentPage === item.id 
-                  ? 'bg-primary/10 text-primary' 
-                  : 'bg-slate-100 text-slate-500'
+                isAuthPage ? 'bg-primary/10 text-primary' : 'bg-slate-100 text-slate-500'
               }`}>
-                <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
+                <span className="material-symbols-outlined text-[18px]">rocket_launch</span>
               </div>
-              <div className="text-left">
-                <p className="font-bold text-sm">{item.name}</p>
-                <p className="text-[11px] text-slate-400">{item.desc}</p>
-              </div>
-            </button>
-          ))}
+              <span className="font-bold text-sm">Get Started</span>
+            </div>
+            <span className={`material-symbols-outlined text-[20px] transition-transform duration-300 ${
+              mobileAuthOpen ? 'rotate-180' : ''
+            }`}>expand_more</span>
+          </button>
+
+          {/* Collapsible Auth Sub-menu */}
+          <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileAuthOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="ml-4 pl-4 border-l-2 border-slate-100 space-y-1 py-1">
+              {authLinks.map((item) => (
+                <button 
+                  key={item.id}
+                  onClick={() => {
+                    navigateTo(item.id)
+                    setIsOpen(false)
+                    setMobileAuthOpen(false)
+                  }}
+                  className={`flex items-center gap-3 py-3 px-3 rounded-xl transition-all cursor-pointer w-full ${
+                    currentPage === item.id 
+                      ? 'bg-primary/5 text-primary' 
+                      : 'text-navy/70 hover:bg-slate-50'
+                  }`}
+                >
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                    currentPage === item.id 
+                      ? 'bg-primary/10 text-primary' 
+                      : 'bg-slate-100 text-slate-500'
+                  }`}>
+                    <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
+                  </div>
+                  <div className="text-left">
+                    <p className="font-bold text-sm">{item.name}</p>
+                    <p className="text-[11px] text-slate-400">{item.desc}</p>
+                  </div>
+                  {currentPage === item.id && (
+                    <span className="material-symbols-outlined text-primary text-[16px] ml-auto" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </nav>
