@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #D71920;
+  --color-secondary: #006B2D;
+  --color-tertiary: #F5C518;
+  --color-navy: #0B1F3A;
+  --color-surface-border: #E2E8F0;
+  --color-surface-container: #edeef0;
+  --color-surface-container-low: #f3f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface-variant: #444444;
+  --color-bright-red: #D71920;
+  --color-gold: #F5C518;
+  --color-green: #006B2D;
+  
+  --font-display: "Montserrat", sans-serif;
+  --font-headline: "Montserrat", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-label: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #D71920 0%, #F5C518 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-overlay {
+  background: linear-gradient(to right, rgba(11, 31, 58, 0.95) 0%, rgba(11, 31, 58, 0.7) 100%);
+}
+
+.hero-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.kinetic-border {
+  position: relative;
+}
+
+.kinetic-border::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #D71920;
+}
