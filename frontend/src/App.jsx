@@ -34,8 +34,6 @@ function App() {
     window.scrollTo(0, 0)
   }
 
-  const isAuthPage = ['login', 'registration', 'forgot-password', 'reset-password', 'otp-verification', 'email-verification'].includes(currentPage)
-
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-between selection:bg-secondary selection:text-white pt-20">
       {/* Navbar */}
@@ -55,7 +53,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      {!isAuthPage && <Footer navigateTo={navigateTo} />}
+      <Footer navigateTo={navigateTo} />
     </div>
   )
 }

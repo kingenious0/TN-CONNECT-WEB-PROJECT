@@ -46,7 +46,7 @@ function EmailVerification({ navigateTo }) {
   }
 
   return (
-    <main className="min-h-screen w-full bg-navy relative overflow-hidden flex flex-col justify-between text-white font-body">
+    <main className="w-full bg-navy relative overflow-hidden flex flex-col text-white font-body" style={{ minHeight: 'calc(100vh - 5rem)' }}>
       {/* Background Graphic Accents */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary rounded-full blur-[120px]"></div>
@@ -219,16 +219,6 @@ function EmailVerification({ navigateTo }) {
         </div>
       </div>
 
-      {/* Minimal Footer */}
-      <footer className="w-full relative z-20 py-6 border-t border-white/10 bg-navy/40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <p>© 2026 TN Universities Connect. All rights reserved.</p>
-          <div className="flex gap-6">
-            <button onClick={() => navigateTo('home')} className="hover:text-white transition-colors">Privacy Policy</button>
-            <button onClick={() => navigateTo('home')} className="hover:text-white transition-colors">Terms of Service</button>
-          </div>
-        </div>
-      </footer>
     </main>
   )
 }

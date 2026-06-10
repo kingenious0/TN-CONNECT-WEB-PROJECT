@@ -30,7 +30,7 @@ function Login({ navigateTo }) {
   }
 
   return (
-    <main className="min-h-screen w-full bg-navy relative overflow-hidden flex flex-col justify-between text-white font-body">
+    <main className="w-full bg-navy relative overflow-hidden flex flex-col text-white font-body" style={{ minHeight: 'calc(100vh - 5rem)' }}>
       {/* Background Graphic Accents */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary rounded-full blur-[120px]"></div>
@@ -41,7 +41,7 @@ function Login({ navigateTo }) {
 
       {/* Main Container */}
       <div className="flex-grow flex items-center justify-center py-0 md:py-12 px-0 md:px-6 relative z-10 w-full">
-        <div className="w-full max-w-[1100px] flex flex-col md:flex-row bg-white rounded-none md:rounded-3xl shadow-none md:shadow-2xl overflow-hidden border-x-0 md:border border-slate-200/50 min-h-screen md:min-h-[650px]">
+        <div className="w-full max-w-[1100px] flex flex-col md:flex-row bg-white rounded-none md:rounded-3xl shadow-none md:shadow-2xl overflow-hidden border-x-0 md:border border-slate-200/50 md:min-h-[650px]">
           
           {/* BRAND VISUAL SIDE (LEFT) - HIDDEN ON MOBILE */}
           <div className="relative hidden md:flex w-full md:w-1/2 bg-navy overflow-hidden flex-col justify-between p-12 md:p-16 text-white border-r border-slate-100">
@@ -94,7 +94,7 @@ function Login({ navigateTo }) {
           </div>
 
           {/* LOGIN FORM SIDE (RIGHT) */}
-          <div className="w-full md:w-1/2 flex flex-col justify-center p-6 sm:p-8 md:p-16 bg-white text-slate-800 min-h-screen md:min-h-0">
+          <div className="w-full md:w-1/2 flex flex-col justify-center p-6 sm:p-8 md:p-16 bg-white text-slate-800">
             <div className="max-w-md mx-auto w-full">
               
               <div className="mb-6 md:mb-10 text-center md:text-left">
@@ -225,16 +225,7 @@ function Login({ navigateTo }) {
         </div>
       </div>
 
-      {/* Minimal Footer */}
-      <footer className="w-full relative z-20 py-6 border-t border-white/10 bg-navy/40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <p>© 2026 TN Universities Connect. All rights reserved.</p>
-          <div className="flex gap-6">
-            <button onClick={() => navigateTo('home')} className="hover:text-white transition-colors">Privacy Policy</button>
-            <button onClick={() => navigateTo('home')} className="hover:text-white transition-colors">Terms of Service</button>
-          </div>
-        </div>
-      </footer>
+
     </main>
   )
 }
