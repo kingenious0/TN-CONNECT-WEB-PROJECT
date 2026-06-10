@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | TN CONNECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "on-primary-fixed": "#00174b",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface-container": "#e5eeff",
+                        "surface-container-low": "#eff4ff",
+                        "on-surface": "#0b1c30",
+                        "surface": "#f8f9ff",
+                        "secondary": "#006c49",
+                        "on-secondary-fixed-variant": "#005236",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-primary-container": "#eeefff",
+                        "surface-tint": "#0053db",
+                        "on-secondary-fixed": "#002113",
+                        "on-background": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed": "#ffddb8",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "primary": "#004ac6",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "inverse-primary": "#b4c5ff",
+                        "primary-container": "#2563eb",
+                        "tertiary": "#784b00",
+                        "surface-bright": "#f8f9ff",
+                        "outline": "#737686",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-container": "#6cf8bb",
+                        "surface-dim": "#cbdbf5",
+                        "surface-variant": "#d3e4fe",
+                        "on-surface-variant": "#434655",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed": "#2a1700",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-container": "#00714d",
+                        "outline-variant": "#c3c6d7",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "3xl": "64px",
+                        "xl": "32px",
+                        "margin-desktop": "32px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 sticky top-0 z-50">
+<div class="text-headline-sm font-headline-sm font-bold text-primary">TN CONNECT</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-label-md font-label-md text-primary font-bold border-b-2 border-primary pb-1">Sign In</button>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<!-- Background Ambient Elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-fixed opacity-20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary-fixed-dim opacity-20 blur-[120px] rounded-full"></div>
+<!-- Sign In Container -->
+<div class="w-full max-w-[440px] z-10">
+<!-- Auth Selection Tabs -->
+<div class="flex mb-lg bg-surface-container-low p-sm rounded-xl">
+<button class="flex-1 py-md px-lg rounded-lg text-label-md font-label-md transition-all bg-primary-container text-on-primary-container shadow-sm" id="studentTab" onclick="switchAuth('student')">
+                    Student Login
+                </button>
+<button class="flex-1 py-md px-lg rounded-lg text-label-md font-label-md transition-all text-on-surface-variant hover:bg-surface-container-high" id="adminTab" onclick="switchAuth('admin')">
+                    Admin Access
+                </button>
+</div>
+<div class="glass-card rounded-[24px] shadow-sm p-xl md:p-2xl">
+<!-- Header -->
+<div class="mb-xl text-center md:text-left">
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface mb-xs" id="formTitle">Welcome Back</h1>
+<p class="text-body-md font-body-md text-on-surface-variant" id="formSubtitle">Please enter your student credentials to access the portal.</p>
+</div>
+<!-- Form -->
+<form class="space-y-lg" onsubmit="return false;">
+<div class="space-y-sm">
+<label class="block text-label-md font-label-md text-on-surface" for="identity">Email or Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">alternate_email</span>
+<input class="w-full pl-[48px] pr-md py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:ring-opacity-20 focus:border-primary outline-none transition-all text-body-md" id="identity" name="identity" placeholder="name@college.edu" type="text"/>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="block text-label-md font-label-md text-on-surface" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-[48px] pr-md py-md bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:ring-opacity-20 focus:border-primary outline-none transition-all text-body-md" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-sm cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Remember Me</span>
+</label>
+<a class="text-label-md font-label-md text-primary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<button class="w-full py-md bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:bg-[#003ea8] active:scale-[0.98] transition-all flex items-center justify-center gap-sm" type="submit">
+                        Sign In
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Help / Footer -->
+<div class="mt-xl pt-xl border-t border-outline-variant text-center">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                        Don't have an account? 
+                        <a class="text-primary font-bold hover:underline" href="#">Request Access</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-8 px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-label-md font-label-md font-bold text-on-surface">TN CONNECT</div>
+<div class="flex gap-lg">
+<a class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">© 2024 TN CONNECT. All rights reserved.</div>
+</footer>
+<script>
+        function switchAuth(type) {
+            const studentTab = document.getElementById('studentTab');
+            const adminTab = document.getElementById('adminTab');
+            const title = document.getElementById('formTitle');
+            const subtitle = document.getElementById('formSubtitle');
+            const identityLabel = document.querySelector('label[for="identity"]');
+
+            if (type === 'admin') {
+                adminTab.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                adminTab.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+                
+                studentTab.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                studentTab.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+
+                title.innerText = "Admin Portal";
+                subtitle.innerText = "Authorized personnel only. Please enter your administrator credentials.";
+                identityLabel.innerText = "Admin ID or Email";
+            } else {
+                studentTab.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                studentTab.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+                
+                adminTab.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                adminTab.classList.add('text-on-surface-variant', 'hover:bg-surface-container-high');
+
+                title.innerText = "Welcome Back";
+                subtitle.innerText = "Please enter your student credentials to access the portal.";
+                identityLabel.innerText = "Email or Phone Number";
+            }
+        }
+    </script>
+</body></html>

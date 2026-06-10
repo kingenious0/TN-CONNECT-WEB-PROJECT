@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "stitch": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "@_davideast/stitch-mcp@latest", "proxy"],
+      "env": {
+        "STITCH_USE_SYSTEM_GCLOUD": "0",
+        "CI": "1",
+        "DOTENV_CONFIG_QUIET": "true",
+        "STITCH_API_KEY": "YOUR_STITCH_API_KEY",
+        "NO_COLOR": "1"
+      },
+      "enabled": true
+    }
+  }
+}

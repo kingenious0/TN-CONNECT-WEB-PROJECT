@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TN CONNECT - Registration Success</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#005049",
+                    "error": "#EF4444",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#684000",
+                    "primary-container": "#4f46e5",
+                    "secondary": "#006a61",
+                    "warning": "#F59E0B",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "secondary-container": "#86f2e4",
+                    "surface-container-low": "#eff4ff",
+                    "outline-variant": "#c7c4d8",
+                    "on-secondary-container": "#006f66",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "primary-fixed": "#e2dfff",
+                    "surface-tint": "#4d44e3",
+                    "surface-border": "#E2E8F0",
+                    "on-background": "#0b1c30",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "on-tertiary-fixed": "#2a1700",
+                    "surface": "#f8f9ff",
+                    "inverse-primary": "#c3c0ff",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "outline": "#777587",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "success": "#10B981",
+                    "inverse-surface": "#213145",
+                    "on-secondary-fixed": "#00201d",
+                    "tertiary-fixed": "#ffddb8",
+                    "background": "#f8f9ff",
+                    "primary": "#3525cd",
+                    "secondary-fixed": "#89f5e7",
+                    "tertiary-container": "#885500",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-surface-variant": "#464555",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "info": "#3B82F6",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#0b1c30",
+                    "on-primary-container": "#dad7ff",
+                    "on-primary-fixed": "#0f0069",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gap-xs": "0.5rem",
+                    "max-width-content": "1280px",
+                    "margin-desktop": "2rem",
+                    "gap-sm": "1rem",
+                    "gap-lg": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "gap-md": "1.5rem",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "data-xs": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-hero": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "data-xs": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-confetti {
+            background-image: radial-gradient(circle, #4f46e5 1px, transparent 1px), radial-gradient(circle, #10B981 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<!-- Applying style_component_shape, style_bg_color, style_separation_logic, style_shadows_and_elevation -->
+<nav class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim border-b border-surface-border shadow-sm">
+<!-- Applying style_shell_layout -->
+<div class="flex justify-between items-center px-margin-desktop max-w-max-width-content mx-auto h-16">
+<!-- Brand Logo: Applying style_brand_logo -->
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">
+                TN CONNECT
+            </div>
+<!-- Navigation Links: Applying style_typography and active/inactive state logic -->
+<div class="hidden md:flex items-center gap-gap-md font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+<!-- Active State Logic: Registration is active -->
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Registration</a>
+</div>
+<!-- Trailing Action: Applying style_interactions and style_universal_hover -->
+<div class="flex items-center gap-gap-sm">
+<button class="px-5 py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-all scale-95 active:scale-90">
+                    Login
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow relative overflow-hidden flex flex-col items-center justify-center py-gap-lg px-margin-mobile">
+<!-- Atmospheric Background Element -->
+<div class="absolute inset-0 bg-confetti -z-10"></div>
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-gradient-to-b from-primary-container/10 to-transparent blur-3xl -z-20"></div>
+<div class="w-full max-w-2xl">
+<!-- Progress Bar Section -->
+<div class="mb-gap-lg px-4">
+<div class="flex justify-between items-end mb-gap-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Registration Progress</span>
+<span class="font-label-md text-label-md text-primary font-bold">Step 3 of 3</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-0 transition-all duration-1000 ease-out" id="progress-bar" style="width: 100%"></div>
+</div>
+</div>
+<!-- Confirmation Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md border border-surface-border p-gap-lg text-center transform transition-all duration-500 hover:shadow-lg">
+<!-- Success Icon Animation -->
+<div class="mb-gap-md inline-flex items-center justify-center w-20 h-20 rounded-full bg-success/10 text-success animate-bounce">
+<span class="material-symbols-outlined !text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="font-display-hero text-headline-lg md:text-display-hero text-on-background mb-gap-xs">
+                    Welcome to the Community!
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto mb-gap-lg">
+                    Your account has been successfully verified. You now have full access to our global portal and collaboration tools.
+                </p>
+<!-- Status Bento-ish Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gap-sm mb-gap-lg text-left">
+<div class="p-gap-sm rounded-lg bg-surface-container-low border border-surface-border flex items-center gap-gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Account Status</p>
+<p class="font-body-md text-body-md font-bold text-on-surface">Verified</p>
+</div>
+</div>
+<div class="p-gap-sm rounded-lg bg-surface-container-low border border-surface-border flex items-center gap-gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Member ID</p>
+<p class="font-body-md text-body-md font-bold text-on-surface">TN-2024-8842</p>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="flex flex-col sm:flex-row gap-gap-sm justify-center">
+<a class="px-gap-lg py-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-md hover:translate-y-[-2px] hover:shadow-lg transition-all active:translate-y-0" href="#">
+                        Go to Dashboard
+                    </a>
+<button class="px-gap-lg py-4 border-2 border-primary text-primary bg-transparent rounded-lg font-label-md text-label-md hover:bg-primary/5 transition-all">
+                        Complete Profile
+                    </button>
+</div>
+</div>
+<!-- Secondary Visual: Success Story -->
+<div class="mt-gap-lg flex flex-col md:flex-row items-center gap-gap-md bg-surface-container-low/50 p-gap-md rounded-xl border border-dashed border-outline-variant">
+<img class="w-32 h-32 rounded-lg object-cover shadow-sm" data-alt="A diverse group of happy students and professionals sitting in a bright, sunlit modern coworking space, laughing and engaging in a collaborative discussion. The room is filled with indoor plants, sleek wooden furniture, and glass walls, embodying a warm, energetic, and professional atmosphere aligned with a corporate modern design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqTG9ww8Vy3C4uWsKuQAmd0ZQjs69eBNrayL2Bv_o3sCfwolaG4Wq6uQapscEyf8gqmQ00cniMMJOB10itT1DUh42XMPEiDtO_1MnkzUrRN6jIID_SJYl2jAqPAa4nU2D7p2JYq4vw1vWscEcmTVUBReJmzE_-ZLJpWUghp-A1Q7KANnbaPKhhrsjyLWfNVkyU444wr0vYcYr77vMrlbl7zIKcQBrKHDHGf9qwjEsBZynleBFTpnnpZebIwSWnhOulc-0CPnVXusF"/>
+<div class="text-center md:text-left">
+<h3 class="font-headline-md text-headline-md text-on-background">Start your journey today</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Join over 15,000 members already accelerating their careers through TN CONNECT.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<!-- Applying style_bg_color, style_separation_logic, style_component_shape -->
+<footer class="w-full py-gap-lg bg-inverse-surface dark:bg-surface-container-lowest">
+<!-- Applying style_shell_layout -->
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-max-width-content mx-auto">
+<!-- Brand Logo in Footer -->
+<div class="font-headline-lg text-headline-lg text-on-primary mb-gap-sm md:mb-0">
+                TN CONNECT
+            </div>
+<!-- Copyright and Links -->
+<div class="flex flex-col items-center md:items-end gap-gap-xs">
+<div class="flex gap-gap-md mb-gap-xs">
+<!-- Footer Links: Applying style_inactive_navigation and style_universal_hover -->
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Cookie Policy</a>
+</div>
+<p class="font-body-md text-body-md text-surface-variant opacity-70">
+                    © 2024 TN CONNECT. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth progress bar entry
+            const bar = document.getElementById('progress-bar');
+            setTimeout(() => {
+                bar.style.width = '100%';
+            }, 100);
+
+            // Subtle interaction for cards
+            const cards = document.querySelectorAll('.bg-surface-container-lowest');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        });
+    </script>
+</body></html>

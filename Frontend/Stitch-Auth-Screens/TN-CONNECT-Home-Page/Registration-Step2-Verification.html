@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TN CONNECT - OTP Verification</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005049",
+                        "error": "#EF4444",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#684000",
+                        "primary-container": "#4f46e5",
+                        "secondary": "#006a61",
+                        "warning": "#F59E0B",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "secondary-container": "#86f2e4",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#c7c4d8",
+                        "on-secondary-container": "#006f66",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "primary-fixed": "#e2dfff",
+                        "surface-tint": "#4d44e3",
+                        "surface-border": "#E2E8F0",
+                        "on-background": "#0b1c30",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface": "#f8f9ff",
+                        "inverse-primary": "#c3c0ff",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-dim": "#cbdbf5",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "outline": "#777587",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "success": "#10B981",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed": "#00201d",
+                        "tertiary-fixed": "#ffddb8",
+                        "background": "#f8f9ff",
+                        "primary": "#3525cd",
+                        "secondary-fixed": "#89f5e7",
+                        "tertiary-container": "#885500",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ffd4a4",
+                        "on-surface-variant": "#464555",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "info": "#3B82F6",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#0b1c30",
+                        "on-primary-container": "#dad7ff",
+                        "on-primary-fixed": "#0f0069",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.8px",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gap-xs": "0.5rem",
+                        "max-width-content": "1280px",
+                        "margin-desktop": "2rem",
+                        "gap-sm": "1rem",
+                        "gap-lg": "2.5rem",
+                        "margin-mobile": "1rem",
+                        "gap-md": "1.5rem",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "data-xs": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-hero": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "data-xs": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .otp-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #3525cd;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim border-b border-surface-border shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop max-w-max-width-content mx-auto h-16">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">TN CONNECT</div>
+<div class="hidden md:flex items-center gap-gap-md font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-2 py-1" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-2 py-1" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-2 py-1" href="#">Contact</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Registration</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md scale-95 active:scale-90 transition-transform hover:bg-opacity-90">
+                Login
+            </button>
+</div>
+</nav>
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-gap-lg">
+<!-- Registration Container -->
+<div class="w-full max-w-[480px]">
+<!-- Step Indicator -->
+<div class="mb-gap-lg">
+<div class="flex justify-between items-end mb-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Verify Identity</h1>
+<span class="font-label-md text-label-md text-on-surface-variant">Step 2 of 3</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[66.6%] transition-all duration-500 ease-out"></div>
+</div>
+</div>
+<!-- Verification Card -->
+<div class="glass-card rounded-xl p-8 shadow-md">
+<div class="flex flex-col items-center text-center mb-gap-md">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mb-gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl">mark_email_read</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Check your inbox</h2>
+<p class="text-on-surface-variant font-body-md">We sent a 6-digit verification code to <span class="text-on-surface font-semibold">alex.smith@example.com</span>. Please enter it below.</p>
+</div>
+<!-- OTP Input Fields -->
+<form class="flex flex-col gap-gap-md" id="otp-form">
+<div class="flex justify-between gap-2 md:gap-4" id="otp-container">
+<input aria-label="Digit 1" class="otp-input w-12 h-14 md:w-16 md:h-20 text-center text-headline-md font-bold bg-surface-container rounded-lg border-none transition-all" maxlength="1" type="number"/>
+<input aria-label="Digit 2" class="otp-input w-12 h-14 md:w-16 md:h-20 text-center text-headline-md font-bold bg-surface-container rounded-lg border-none transition-all" maxlength="1" type="number"/>
+<input aria-label="Digit 3" class="otp-input w-12 h-14 md:w-16 md:h-20 text-center text-headline-md font-bold bg-surface-container rounded-lg border-none transition-all" maxlength="1" type="number"/>
+<input aria-label="Digit 4" class="otp-input w-12 h-14 md:w-16 md:h-20 text-center text-headline-md font-bold bg-surface-container rounded-lg border-none transition-all" maxlength="1" type="number"/>
+<input aria-label="Digit 5" class="otp-input w-12 h-14 md:w-16 md:h-20 text-center text-headline-md font-bold bg-surface-container rounded-lg border-none transition-all" maxlength="1" type="number"/>
+<input aria-label="Digit 6" class="otp-input w-12 h-14 md:w-16 md:h-20 text-center text-headline-md font-bold bg-surface-container rounded-lg border-none transition-all" maxlength="1" type="number"/>
+</div>
+<button class="w-full bg-primary text-on-primary h-14 rounded-lg font-headline-md hover:bg-opacity-90 active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 mt-2" type="submit">
+                        Verify Code
+                    </button>
+</form>
+<!-- Timer & Resend -->
+<div class="mt-gap-md flex flex-col items-center gap-2">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span>Code expires in <span class="font-bold text-on-surface" id="countdown">05:00</span></span>
+</div>
+<button class="font-label-md text-outline disabled:text-outline-variant disabled:cursor-not-allowed hover:text-primary transition-colors py-2 flex items-center gap-1" disabled="" id="resend-btn">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+                        Resend Code
+                    </button>
+</div>
+</div>
+<!-- Help Links -->
+<p class="mt-gap-md text-center font-body-md text-on-surface-variant">
+                Need help? <a class="text-primary font-semibold hover:underline" href="#">Contact Support</a>
+</p>
+</div>
+</main>
+<!-- Decorative Elements (Bento Background) -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none opacity-40">
+<div class="absolute top-[10%] right-[5%] w-[400px] h-[400px] bg-primary-container/20 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[5%] left-[5%] w-[300px] h-[300px] bg-secondary-container/20 rounded-full blur-[80px]"></div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-gap-lg bg-inverse-surface dark:bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-max-width-content mx-auto">
+<div class="mb-gap-sm md:mb-0">
+<span class="font-headline-lg text-headline-lg text-on-primary">TN CONNECT</span>
+<p class="text-surface-variant text-body-md mt-2 md:max-w-[300px]">Empowering the next generation of administrators and students through streamlined technology.</p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-gap-xs">
+<div class="flex gap-gap-md font-body-md text-body-md">
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors underline decoration-2" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors underline decoration-2" href="#">Terms of Service</a>
+<a class="text-surface-variant hover:text-secondary-fixed transition-colors underline decoration-2" href="#">Cookie Policy</a>
+</div>
+<p class="text-surface-variant font-body-md mt-4">© 2024 TN CONNECT. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // OTP Focus Logic
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length > 1) {
+                    e.target.value = e.target.value.slice(0, 1);
+                }
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        // Countdown Timer Logic
+        let timeLeft = 300; // 5 minutes
+        const countdownElement = document.getElementById('countdown');
+        const resendBtn = document.getElementById('resend-btn');
+
+        const timer = setInterval(() => {
+            const minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            countdownElement.textContent = `${minutes}:${seconds}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                resendBtn.disabled = false;
+                resendBtn.classList.remove('text-outline-variant');
+                resendBtn.classList.add('text-primary', 'font-bold');
+            } else {
+                timeLeft--;
+            }
+        }, 1000);
+
+        // Form Submit
+        document.getElementById('otp-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const code = Array.from(inputs).map(i => i.value).join('');
+            if(code.length === 6) {
+                alert(`Verifying code: ${code}`);
+                // Proceed to next step logic here
+            } else {
+                alert('Please enter the full 6-digit code.');
+            }
+        });
+    </script>
+</body></html>

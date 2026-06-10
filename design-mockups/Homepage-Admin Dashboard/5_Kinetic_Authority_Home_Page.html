@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TN CONNECT | Your Community, Connected (Kinetic Authority Brand)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Chivo:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#bc0100", // Bright Red
+                        "secondary": "#705d00", // Gold
+                        "tertiary": "#006a61", // Dark Green
+                        "navy": "#0b1c30", // Navy Blue
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "surface": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "surface-container-low": "#f3f4f6",
+                        "surface-border": "#e1e2e4",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gap-sm": "1rem",
+                        "gap-xs": "0.5rem",
+                        "max-width-content": "1280px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "gap-md": "24px",
+                        "gap-lg": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Chivo", "sans-serif"],
+                        "headline-lg": ["Chivo", "sans-serif"],
+                        "display-hero": ["Chivo", "sans-serif"],
+                        "body-md": ["Public Sans", "sans-serif"],
+                        "body-lg": ["Public Sans", "sans-serif"],
+                        "label-md": ["Public Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "display-hero": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #bc0100 0%, #705d00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(11, 28, 48, 0.95) 0%, rgba(11, 28, 48, 0.7) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary selection:text-white">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-surface-border">
+<div class="flex justify-between items-center px-margin-desktop max-w-max-width-content mx-auto h-20">
+<div class="h-12 w-auto flex items-center"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhvvowAp64pGKjdtkeHrqlz_e5vjMeC0ORR864iTtMg0xdXLXJiZ2iZ4LDGzvgMkcQS87Huxg8uSSBWWLn3B0ty3xDvlQ1lP1Ru0Ig5QkMqyqE-_2VkNWVqyRqekw2ZfkAw71sP4aIAPbOkzYCfVxbjC10kPHQ_J9n30EWxrwTlP-wzQm6qOsdxcl9m-DHd31Ur-RzkU6JI6q3Hl0Jau3mZimPYjEUMwpWmZBMEIO_VcESzQL30GzesM1k2nX88I0zdCdunxtyHcuM" alt="TN Universities Connect Logo" class="h-full w-auto object-contain"></div>
+<div class="hidden md:flex items-center gap-8 font-label-md">
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="text-navy/70 hover:text-primary transition-colors" href="#">About</a>
+<a class="text-navy/70 hover:text-primary transition-colors" href="#">Contact</a>
+<a class="text-navy/70 hover:text-primary transition-colors" href="#">Registration</a>
+</div>
+<button class="bg-navy text-white px-8 py-2.5 rounded-lg font-label-md hover:bg-primary transition-all shadow-md">
+                Login
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden bg-navy">
+<div class="absolute inset-0 z-0 transition-all duration-1000 opacity-100 translate-y-0">
+<img alt="Students collaborating on campus" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRl10Pto_kBeznkPYBG0larODlXr2SL_0roicT3Pw8vRZUtqeaNTCGLDZVF9Ua-BHX5IkixTnDvH7ruJ7G2DDXvUCzSM24h7iE0AbJ26ehbeua-LrFk-raNYTtbadJ7MNZc2KyuUnUhd1gegoRas_GAzVEVcB3SFpCtELi0C5ZCGgO6wFCRWSlafotRB1v-f9eS4n8rhXaJkjiHLJNh__H_-7gI_ngEBN66pE7UkwiiPJtpFG0IdARVnOhuQLicWeE5K8tHuNt6Byf">
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-max-width-content mx-auto w-full py-20 transition-all duration-1000 opacity-100 translate-y-0">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 bg-secondary/20 text-secondary border border-secondary/30 px-4 py-2 rounded-full mb-8 font-label-md">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="uppercase tracking-widest text-xs">A Kinetic Authority Project</span>
+</div>
+<h1 class="font-display-hero text-6xl md:text-7xl text-white mb-8 leading-tight">
+                        Empowering Your <br><span class="text-gradient">Academic Journey</span>
+</h1>
+<p class="font-body-lg text-xl text-white/80 mb-12 max-w-2xl leading-relaxed">
+                        TN CONNECT is the professional digital hub designed to bridge the gap between campus resources and student excellence. Experience a connected community like never before.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary text-white px-12 py-5 rounded-xl font-label-md text-lg shadow-2xl shadow-primary/30 hover:bg-red-700 hover:-translate-y-1 transition-all">
+                            Join the Network
+                        </button>
+<button class="bg-transparent text-white border-2 border-white/30 px-12 py-5 rounded-xl font-label-md text-lg hover:bg-white/10 transition-all backdrop-blur-sm">
+                            Platform Tour
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="relative -mt-20 z-20 px-margin-desktop mb-24">
+<div class="max-w-max-width-content mx-auto transition-all duration-1000 opacity-100 translate-y-0">
+<div class="bg-white rounded-2xl shadow-2xl border border-surface-border p-10 md:p-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center">
+<div class="text-navy font-headline-lg text-5xl mb-3">15,000+</div>
+<div class="text-secondary font-label-md uppercase tracking-widest">Active Members</div>
+</div>
+<div class="flex flex-col items-center text-center border-y md:border-y-0 md:border-x border-surface-border py-8 md:py-0">
+<div class="text-navy font-headline-lg text-5xl mb-3">50+</div>
+<div class="text-secondary font-label-md uppercase tracking-widest">Partner Institutions</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="text-navy font-headline-lg text-5xl mb-3">100%</div>
+<div class="text-secondary font-label-md uppercase tracking-widest">Secure Profiles</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Join? Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="px-margin-desktop max-w-max-width-content mx-auto transition-all duration-1000 opacity-100 translate-y-0">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-4xl text-navy mb-6">Why Choose TN CONNECT?</h2>
+<div class="w-24 h-1 bg-secondary mx-auto mb-8"></div>
+<p class="text-navy/70 text-lg max-w-2xl mx-auto font-body-lg">Professional-grade features designed for the modern scholar and academic organization.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Feature 1 -->
+<div class="bg-white p-10 rounded-2xl border border-surface-border hover:border-tertiary transition-all duration-300 group">
+<div class="w-16 h-16 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-8 group-hover:bg-tertiary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<h3 class="font-headline-md text-2xl text-navy mb-4">Centralized Hub</h3>
+<p class="text-navy/60 leading-relaxed font-body-md">
+                            Access all your campus resources, student organizations, and events from a single, unified professional dashboard.
+                        </p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white p-10 rounded-2xl border border-surface-border hover:border-secondary transition-all duration-300 group">
+<div class="w-16 h-16 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-8 group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="font-headline-md text-2xl text-navy mb-4">Instant Verification</h3>
+<p class="text-navy/60 leading-relaxed font-body-md">
+                            Secure, instant student status verification for exclusive benefits and verified campus networking.
+                        </p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white p-10 rounded-2xl border border-surface-border hover:border-primary transition-all duration-300 group">
+<div class="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="font-headline-md text-2xl text-navy mb-4">Kinetic Performance</h3>
+<p class="text-navy/60 leading-relaxed font-body-md">
+                            Optimized for high-speed engagement. Manage your profile and connect with peers with unparalleled efficiency.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Team Behind the Project -->
+<section class="py-24 bg-white overflow-hidden">
+<div class="px-margin-desktop max-width-max-width-content mx-auto transition-all duration-1000 opacity-100 translate-y-0">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<h2 class="font-headline-lg text-4xl text-navy mb-6">The Team Behind the Project</h2>
+<div class="w-20 h-1.5 bg-primary mb-8"></div>
+<p class="text-navy/70 text-lg mb-8 leading-relaxed font-body-lg">
+                            We are a dedicated collective of designers, engineers, and educators driven by the vision of a more connected academic world. Under the Kinetic Authority brand, we build tools that empower the next generation.
+                        </p>
+<div class="space-y-4 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="font-label-md text-navy">Expert-led development</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="font-label-md text-navy">Student-centric design philosophy</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="font-label-md text-navy">Global academic perspective</span>
+</div>
+</div>
+<button class="bg-navy text-white px-10 py-4 rounded-lg font-label-md hover:bg-secondary transition-all">
+                            Meet the Directors
+                        </button>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="absolute -top-6 -left-6 w-full h-full border-4 border-secondary rounded-2xl z-0"></div>
+<img alt="The Team Behind the Project" class="relative z-10 w-full h-auto rounded-2xl shadow-2xl object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_2bE7P466CH0am8nOyvU9S8otVs9HHrZakgiXUOnNDWyn4hY91mIJCXtLvlA4kMqoXaVsYHIQtjuDqHi-b-y_Anj2IZVjKRlymhvHwtSgRP4nsexTMvi-ruiCe5MwD9SZId24bE89Z61c6W2R5DeQROEX32j-58aOcxAMN4NEjrJzAto4I_zBJYKdUft05hOw1vXpaONShBJqgbnc1AG-6oKrocVt0g1mqhxKCLSzBPaRx7krO4IqBCWaHlV-8Y80XDp1cgIIrBBM">
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-24 bg-surface-container">
+<div class="px-margin-desktop max-w-max-width-content mx-auto transition-all duration-1000 opacity-100 translate-y-0">
+<h2 class="font-headline-lg text-4xl text-navy text-center mb-20">Voices from Our Community</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-10 rounded-2xl shadow-sm border border-surface-border">
+<div class="flex gap-1 text-secondary mb-6">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-navy/80 mb-8 font-body-md leading-relaxed">"TN CONNECT has completely changed how I find study groups. It's professional, intuitive, and truly effective."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-navy/10 overflow-hidden">
+<img alt="Alex Rivera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuFrQmY0Tg6yHq6LNSdjglHWN5EEEB6SQGbg7Pk93ib5d-fc2sK1Sz4GGQb-f8P5clztnw8jcE2HclgaTvMwXbSk-QdYw0opofBGWvoTeuk2fms8oAmyTE38mYYAh6rN_JvfcONE4SFn0SMjOeYInzE25pkWOpbHeP3L7ATJfA4-H2jG0TZ-yp4MzVeydwCl_o1GS00beSOKaHIh-hTH0C36kMt98HcNZT-QC1Kn1T1qr5kFo9Q8vp1v7wKW2QmqlbE3OqU2Xo4CHwr">
+</div>
+<div>
+<div class="font-label-md text-navy">Alex Rivera</div>
+<div class="text-xs text-navy/60 font-medium">Computer Science Junior</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-2xl shadow-sm border border-surface-border">
+<div class="flex gap-1 text-secondary mb-6">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-navy/80 mb-8 font-body-md leading-relaxed">"As a club president, managing events and attendance has never been easier. The verification feature is a game-changer."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-navy/10 overflow-hidden">
+<img alt="Sarah Jenkins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9eSve4n_RJX6QgekpBgVaZcYxBzWOwtFZBbFHyyrbaB-X1xnNLG77rXfff2GDhgE5P9YqzkeByY2QnKaRFzLC5lfH-za0kx9ow-yPaQDb6w_2RfPCL53CI8F__5AnP_OL4wtlv85B3r8gkpGhH5zHrMKxe85MQHgNimF6apzgp3Ho_ba_3C7dU5mt8eOb14YM7YijKrf7LasAjtjmtFv7m6Xdju8BwMiF7AD1NBGujV5VtzfKAYBKpynD6nVplVVN_typEZB99moy">
+</div>
+<div>
+<div class="font-label-md text-navy">Sarah Jenkins</div>
+<div class="text-xs text-navy/60 font-medium">History Senior</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-2xl shadow-sm border border-surface-border">
+<div class="flex gap-1 text-secondary mb-6">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-navy/80 mb-8 font-body-md leading-relaxed">"Finally, a student platform that feels modern and professional. The mobile experience is absolutely flawless."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-navy/10 overflow-hidden">
+<img alt="Michael Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsZzgtH-ESHnfMtKiDGWyAQLbQI_woYe8xMu8CqivtRnJXGvgp09ilx5aUlRfjcFELCgf5-LiWW4VYJBygn20BtTvtN1mpvg54Lvk93i1DqvHSeBJc4iOaNkrW6Qtab9D0wLX6PWUN3pkd2Wp7D17mxT2LwlnyX3U0-8plOeu2asnqc4wZ_5GebnaMV_Q-BF8yY5I_LKrpvCsQGzv6oUiFyr2_GUfM9VKEV6RtDRncyi1a32baaxFYxTVqq9bx5aTo4eFlDWGrDo5m">
+</div>
+<div>
+<div class="font-label-md text-navy">Michael Chen</div>
+<div class="text-xs text-navy/60 font-medium">Business Freshman</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-margin-desktop">
+<div class="max-w-max-width-content mx-auto bg-navy rounded-3xl p-16 md:p-24 text-center relative overflow-hidden transition-all duration-1000 opacity-100 translate-y-0">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary opacity-20 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary opacity-20 rounded-full blur-[100px]"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-4xl md:text-5xl text-white mb-8">Ready to transform your student life?</h2>
+<p class="font-body-lg text-xl text-white/70 mb-12 max-w-2xl mx-auto">Join the Kinetic Authority network and build your campus future today.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-primary text-white px-12 py-5 rounded-xl font-label-md text-lg hover:bg-red-700 transition-all shadow-xl shadow-primary/20">
+                            Create Professional Account
+                        </button>
+<button class="bg-white text-navy px-12 py-5 rounded-xl font-label-md text-lg hover:bg-surface-container transition-all">
+                            Institutional Inquiry
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-navy text-white pt-24 pb-12">
+<div class="px-margin-desktop max-w-max-width-content mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+<div class="md:col-span-5">
+<div class="font-headline-lg text-3xl font-black text-white mb-8 tracking-tighter">TN CONNECT</div>
+<p class="font-body-md text-white/60 max-w-md mb-10 leading-relaxed">
+                        The definitive platform for academic networking and institutional connectivity. Powered by Kinetic Authority's commitment to innovation and student success.
+                    </p>
+<div class="flex gap-5">
+<a class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary transition-all border border-white/10" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+<a class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary transition-all border border-white/10" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary transition-all border border-white/10" href="#">
+<span class="material-symbols-outlined text-[20px]">podcasts</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-8 text-sm">Navigation</h4>
+<ul class="space-y-4 font-body-md text-white/70">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Services</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Portal</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-8 text-sm">Legal</h4>
+<ul class="space-y-4 font-body-md text-white/70">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-md text-secondary uppercase tracking-widest mb-8 text-sm">Contact</h4>
+<ul class="space-y-5 font-body-md text-white/70">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="">contact@kineticauthority.edu</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="">Kinetic Plaza, Floor 12<br>Metropolis, NY 10001</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40 text-sm font-label-md uppercase tracking-widest">
+<p class="">© 2026 TN CONNECT / KINETIC AUTHORITY</p>
+<div class="flex gap-8">
+</div>
+</div>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>
