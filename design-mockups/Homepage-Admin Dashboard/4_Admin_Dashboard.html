@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TN CONNECT | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#005049",
+                    "error": "#EF4444",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#684000",
+                    "primary-container": "#4f46e5",
+                    "secondary": "#006a61",
+                    "warning": "#F59E0B",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "secondary-container": "#86f2e4",
+                    "surface-container-low": "#eff4ff",
+                    "outline-variant": "#c7c4d8",
+                    "on-secondary-container": "#006f66",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "primary-fixed": "#e2dfff",
+                    "surface-tint": "#4d44e3",
+                    "surface-border": "#E2E8F0",
+                    "on-background": "#0b1c30",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "on-tertiary-fixed": "#2a1700",
+                    "surface": "#f8f9ff",
+                    "inverse-primary": "#c3c0ff",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "outline": "#777587",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "success": "#10B981",
+                    "inverse-surface": "#213145",
+                    "on-secondary-fixed": "#00201d",
+                    "tertiary-fixed": "#ffddb8",
+                    "background": "#f8f9ff",
+                    "primary": "#3525cd",
+                    "secondary-fixed": "#89f5e7",
+                    "tertiary-container": "#885500",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-surface-variant": "#464555",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "info": "#3B82F6",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#0b1c30",
+                    "on-primary-container": "#dad7ff",
+                    "on-primary-fixed": "#0f0069",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gap-xs": "0.5rem",
+                    "max-width-content": "1280px",
+                    "margin-desktop": "2rem",
+                    "gap-sm": "1rem",
+                    "gap-lg": "2.5rem",
+                    "margin-mobile": "1rem",
+                    "gap-md": "1.5rem",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "data-xs": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-hero": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "data-xs": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .sidebar-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-[280px] fixed left-0 top-0 bg-surface-container-low dark:bg-inverse-surface shadow-md flex flex-col p-gap-md z-50">
+<div class="mb-gap-lg px-4">
+<h1 class="font-headline-md text-headline-md font-black text-primary">TN CONNECT</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Management Portal</p>
+</div>
+<nav class="flex-grow space-y-2">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Members</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Audit Logs</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-md text-label-md shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                New Entry
+            </button>
+<div class="border-t border-surface-border pt-4">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Component -->
+<header class="w-full sticky top-0 z-40 bg-surface dark:bg-surface-dim border-b border-surface-border ml-[280px] h-16 flex justify-between items-center px-margin-desktop pr-[300px]">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Portal</h2>
+<div class="flex items-center gap-gap-md">
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full opacity-80 active:opacity-100">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full opacity-80 active:opacity-100 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-surface-border"></div>
+<div class="flex items-center gap-sm">
+<img alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A professional headshot of a young male administrator with short dark hair and a friendly expression, wearing a minimalist white shirt. The background is a clean, corporate soft blue gradient with studio lighting, conveying a sense of competence and approachable leadership in a modern tech environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFL0vlrTxSRZbJRXZTbXXgkfZdzkFyVBhPYrXOieSnNvnQ4hLkUWJzNYAKjgadSfqJZtK88AxwLdyFiO7YNljblw_P08yLLkmyQwXGu_DIooZ0dXnBXLoPQkzHJWqcnOF0tVSsMHSQn3KuerFoxNLmtCDyRhxmU8wQhHSVYxQFRNSvbDT9Xtd1Zu0rqAc0N139NOi9S68WX-pxdEwPA50hCKw6fVj6IHzcLEnmvYQW6q5UYePSskVswRmD_HGwgU5r2XaPsn66q5wk"/>
+<div class="hidden lg:block text-left">
+<p class="font-label-md text-label-md text-on-surface">Admin User</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">System Superuser</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] p-margin-desktop min-h-screen">
+<!-- Summary Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gap-md mb-gap-lg">
+<!-- Total Members -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-border glass-card hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<span class="text-success font-bold text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">trending_up</span> 12%
+                    </span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Total Members</h3>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">24,592</p>
+</div>
+<!-- Verified Members -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-border glass-card hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<span class="text-success font-bold text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">trending_up</span> 8%
+                    </span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Verified Members</h3>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">18,204</p>
+</div>
+<!-- Active Members -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-border glass-card hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-tertiary-fixed rounded-lg text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<span class="text-error font-bold text-data-xs flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">trending_down</span> 3%
+                    </span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Active Members</h3>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">5,841</p>
+</div>
+<!-- Recent Sign-ups -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-border glass-card hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-highest rounded-lg text-on-background">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</div>
+<span class="text-info font-bold text-data-xs">Today</span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Recent Sign-ups</h3>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">142</p>
+</div>
+</section>
+<!-- Main Content Area: Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gap-md">
+<!-- Recent Registrations Table (Spans 2 columns) -->
+<section class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-sm border border-surface-border overflow-hidden">
+<div class="p-gap-md flex justify-between items-center border-b border-surface-border">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Registrations</h2>
+<button class="text-primary font-label-md text-label-md hover:underline transition-all">View All Members</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-border">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">User</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Status</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Role</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Time</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-border">
+<tr class="hover:bg-surface-dim/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xs">AS</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Alex Stone</p>
+<p class="text-data-xs text-on-surface-variant">alex.s@university.edu</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-success/10 text-success rounded-full text-data-xs font-bold">Verified</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">Student</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">2m ago</td>
+<td class="px-6 py-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dim/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">MK</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Maya Kovic</p>
+<p class="text-data-xs text-on-surface-variant">m.kovic@lab.org</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-warning/10 text-warning rounded-full text-data-xs font-bold">Pending</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">Researcher</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">15m ago</td>
+<td class="px-6 py-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dim/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant font-bold text-xs">JL</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">James Liang</p>
+<p class="text-data-xs text-on-surface-variant">j.liang@corporate.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-success/10 text-success rounded-full text-data-xs font-bold">Verified</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">Partner</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">42m ago</td>
+<td class="px-6 py-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-dim/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-background font-bold text-xs">RE</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Rita Evans</p>
+<p class="text-data-xs text-on-surface-variant">rita.e@service.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-error/10 text-error rounded-full text-data-xs font-bold">Flagged</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">Guest</td>
+<td class="px-6 py-4 text-on-surface-variant text-label-md">1h ago</td>
+<td class="px-6 py-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Quick Actions & System Health -->
+<section class="flex flex-col gap-gap-md">
+<!-- Portal Activity Visualization Card -->
+<div class="bg-primary text-on-primary p-gap-md rounded-xl shadow-lg relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-2">Portal Traffic</h3>
+<p class="text-on-primary-container text-body-md mb-6 opacity-90">Daily active user sessions are up 14.2% from last week.</p>
+<div class="flex items-end gap-2 h-24">
+<div class="flex-1 bg-on-primary/20 rounded-t h-[30%] group-hover:h-[45%] transition-all duration-700"></div>
+<div class="flex-1 bg-on-primary/20 rounded-t h-[50%] group-hover:h-[60%] transition-all duration-700 delay-75"></div>
+<div class="flex-1 bg-on-primary/20 rounded-t h-[40%] group-hover:h-[55%] transition-all duration-700 delay-100"></div>
+<div class="flex-1 bg-on-primary/40 rounded-t h-[70%] group-hover:h-[85%] transition-all duration-700 delay-150"></div>
+<div class="flex-1 bg-on-primary/20 rounded-t h-[60%] group-hover:h-[75%] transition-all duration-700 delay-200"></div>
+<div class="flex-1 bg-on-primary rounded-t h-[90%] group-hover:h-[100%] transition-all duration-700 delay-300"></div>
+</div>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+<!-- Admin Action Log -->
+<div class="bg-surface-container-low p-gap-md rounded-xl border border-surface-border flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-gap-sm uppercase tracking-wider">System Alerts</h4>
+<ul class="space-y-4">
+<li class="flex gap-sm">
+<div class="w-2 h-2 rounded-full bg-error mt-1.5 shrink-0"></div>
+<div>
+<p class="text-label-md font-bold text-on-surface">API Rate Limit Warning</p>
+<p class="text-data-xs text-on-surface-variant">The Auth-API is nearing its hourly throughput limit.</p>
+</div>
+</li>
+<li class="flex gap-sm">
+<div class="w-2 h-2 rounded-full bg-success mt-1.5 shrink-0"></div>
+<div>
+<p class="text-label-md font-bold text-on-surface">Backup Completed</p>
+<p class="text-data-xs text-on-surface-variant">Daily system snapshot saved successfully to S3.</p>
+</div>
+</li>
+<li class="flex gap-sm">
+<div class="w-2 h-2 rounded-full bg-info mt-1.5 shrink-0"></div>
+<div>
+<p class="text-label-md font-bold text-on-surface">Update Available</p>
+<p class="text-data-xs text-on-surface-variant">Version 2.4.1 stable is ready for deployment.</p>
+</div>
+</li>
+</ul>
+<button class="w-full mt-6 py-2 bg-surface-container-high rounded-lg text-primary font-label-md text-label-md hover:bg-surface-container-highest transition-colors">
+                        Clear All Notifications
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest w-full py-gap-lg ml-[280px] w-[calc(100%-280px)]">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-max-width-content mx-auto">
+<p class="font-body-md text-body-md text-on-primary">© 2024 TN CONNECT. All rights reserved.</p>
+<div class="flex gap-gap-md mt-4 md:mt-0">
+<a class="font-body-md text-body-md text-surface-variant hover:text-secondary-fixed transition-colors underline decoration-2" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-secondary-fixed transition-colors underline decoration-2" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-secondary-fixed transition-colors underline decoration-2" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for hovering effect on cards
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
