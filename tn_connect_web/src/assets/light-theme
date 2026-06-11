@@ -1,0 +1,454 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TN CONNECT | Admin Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800;900&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-secondary-fixed-variant": "#544600",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "on-secondary-container": "#6e5c00",
+                      "surface-variant": "#e1e2e4",
+                      "surface-bright": "#f8f9fb",
+                      "tertiary-container": "#626ad4",
+                      "secondary-fixed-dim": "#e9c400",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed": "#221b00",
+                      "primary": "#bc0100",
+                      "on-primary-fixed": "#410000",
+                      "on-primary-container": "#fffbff",
+                      "on-surface": "#191c1e",
+                      "background": "#f8f9fb",
+                      "surface": "#f8f9fb",
+                      "on-tertiary-fixed": "#00006e",
+                      "on-surface-variant": "#603e39",
+                      "on-tertiary-container": "#fffbff",
+                      "on-tertiary-fixed-variant": "#3239a3",
+                      "tertiary": "#4950b9",
+                      "on-primary-fixed-variant": "#930100",
+                      "surface-tint": "#c00100",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "error-container": "#ffdad6",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d9dadc",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#ebbbb4",
+                      "surface-container": "#edeef0",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#ffb4a8",
+                      "secondary-container": "#fcd400",
+                      "on-background": "#191c1e",
+                      "tertiary-fixed": "#e0e0ff",
+                      "secondary-fixed": "#ffe16d",
+                      "surface-container-high": "#e7e8ea",
+                      "inverse-on-surface": "#f0f1f3",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f3f4f6",
+                      "primary-container": "#eb0000",
+                      "tertiary-fixed-dim": "#bfc2ff",
+                      "secondary": "#705d00",
+                      "primary-fixed": "#ffdad4",
+                      "outline": "#956d67"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "gutter": "24px",
+                      "sm": "12px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "caption": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "headline-lg": ["Chivo"],
+                      "label-bold": ["Public Sans"],
+                      "headline-md": ["Chivo"],
+                      "body-md": ["Public Sans"],
+                      "display-lg": ["Chivo"],
+                      "headline-lg-mobile": ["Chivo"]
+              },
+              "fontSize": {
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F3F4F6; /* Fixed Base Layer from Guidance */
+        }
+        .sidebar-active {
+            border-left: 4px solid #705d00; /* Secondary from config */
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #9CA3AF;
+        }
+        .bento-card {
+            background: #FFFFFF;
+            border: 1px solid #9CA3AF;
+            transition: all 0.2s ease;
+        }
+        .bento-card:hover {
+            border-color: #000080; /* Navy fallback logic */
+            border-width: 2px;
+        }
+        .accent-bar {
+            width: 4px;
+            background: #bc0100; /* Primary */
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface">
+<!-- Sidebar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-md z-50">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm">
+<img alt="TN CONNECT Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLu_SpP1LgQ87QvvQaushQ0RzJQBjt2dc8-fFszHW2t7Cunz4GjS123FO-2QoqJOj_KwWuGW4XNkoXz-rizvN92dP-GerCk0G8NmT0ThuuNRBcMwF-NnQUW2vqnp3ZbYlxE5Lyci5hVgxSMi19SKS3AyV6dKPb0Z-Oge227EwjCBdRs9J336dYENPXllu-UBHXammk0aHPDuu9H4FSG6cSAoTfVatN3bPO3nBMAVe0_kF-ehf9A3TvJEY3w">
+<div>
+<h1 class="font-headline-md text-headline-md font-black text-primary">TN CONNECT</h1>
+<p class="text-caption font-caption text-on-surface-variant uppercase tracking-widest">Admin Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-xs px-xs">
+<a class="flex items-center gap-md px-md py-sm sidebar-active text-primary font-bold transition-colors duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant font-body-md transition-colors duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="">Members</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant font-body-md transition-colors duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="">Audit Logs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant font-body-md transition-colors duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant font-body-md transition-colors duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="">Support</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary font-label-bold py-sm rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                Export Report
+            </button>
+<a class="flex items-center gap-md px-md py-md mt-sm text-on-surface-variant font-body-md hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 h-16 w-full bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-margin-desktop z-40">
+<div class="flex items-center bg-surface-container-low px-md py-xs rounded-full border border-outline-variant w-96">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full placeholder:text-on-surface-variant/50" placeholder="Search records, users, or logs..." type="text">
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="relative p-xs text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-sm pl-md border-l border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="font-label-bold text-on-surface leading-none">Kwame Mensah</p>
+<p class="text-caption text-on-surface-variant">Super Admin</p>
+</div>
+<img alt="Admin Profile" class="w-10 h-10 rounded-full border-2 border-secondary-container object-cover" data-alt="A professional headshot of a mature African male executive with a confident smile, wearing a sharp charcoal business suit. The background is a blurred high-end corporate office with soft, warm lighting. The image style is polished and high-fidelity, matching a professional administrative dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYBHjIpHr14_oySbD1AnVcSjv7dFx9n69gHd0gsa-i4YGuhDcrmhSjsIRriXp1UT4N5Wy6J6su4NZFOg-M7CfmVNNm9KFyvTaV_AsNyj-9iKVv_2QaM_fMrKUVSA_3wsZZZln9n8rDJMxRqIwgl1YBwUowZqbM7uflrCeoLjv6tQVh2Q0_Fb6mgA-6i0oIhOt2nG5LoF-FKQL9pflgtJLTZNTXeBJSz7x7VU7sIw9RwI1owix43wK5Iu61JRF71h9HDxj-UmL9GzAi">
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-margin-desktop max-w-[1400px] mx-auto">
+<div class="flex items-end justify-between mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dashboard Overview</h2>
+<p class="text-body-lg text-on-surface-variant">Real-time health and connectivity metrics for TN Connect.</p>
+</div>
+<div class="flex gap-sm">
+<span class="px-md py-xs bg-secondary-container text-on-secondary-container font-label-bold rounded-full flex items-center gap-xs">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                        Live System Status: Optimal
+                    </span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Metric Card: Growth -->
+<div class="col-span-12 md:col-span-4 bento-card p-md relative overflow-hidden group">
+<div class="absolute top-0 left-0 accent-bar h-full"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-xs rounded">trending_up</span>
+<span class="text-caption font-label-bold text-secondary">+12.5%</span>
+</div>
+<p class="text-on-surface-variant font-label-bold uppercase tracking-wider text-[10px]">User Growth</p>
+<h3 class="font-headline-md text-headline-md mt-xs">24,892</h3>
+<div class="mt-md h-12 flex items-end gap-1">
+<!-- Tiny Sparkline Mockup -->
+<div class="flex-1 bg-primary/20 h-4 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/20 h-6 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-8 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-5 rounded-t-sm"></div>
+<div class="flex-1 bg-primary/60 h-10 rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-12 rounded-t-sm"></div>
+</div>
+</div>
+<!-- Metric Card: Activity -->
+<div class="col-span-12 md:col-span-4 bento-card p-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 bg-tertiary h-full"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-tertiary bg-tertiary/10 p-xs rounded">bolt</span>
+<span class="text-caption font-label-bold text-secondary">Active Now: 1.2k</span>
+</div>
+<p class="text-on-surface-variant font-label-bold uppercase tracking-wider text-[10px]">Daily Engagement</p>
+<h3 class="font-headline-md text-headline-md mt-xs">88.4%</h3>
+<div class="mt-md w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[88.4%]"></div>
+</div>
+</div>
+<!-- Metric Card: Retention -->
+<div class="col-span-12 md:col-span-4 bento-card p-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 bg-secondary h-full"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-secondary bg-secondary/10 p-xs rounded">verified_user</span>
+<span class="text-caption font-label-bold text-tertiary">Top Tier</span>
+</div>
+<p class="text-on-surface-variant font-label-bold uppercase tracking-wider text-[10px]">User Retention</p>
+<h3 class="font-headline-md text-headline-md mt-xs">94.2%</h3>
+<div class="mt-md flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-high"></span>
+<span class="text-caption text-on-surface-variant ml-auto italic">Industry Leading</span>
+</div>
+</div>
+<!-- System Health & Resource Monitor -->
+<div class="col-span-12 lg:col-span-8 bento-card border-t-4 border-t-primary overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h4 class="font-label-bold text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                            Community Connectivity Node Health
+                        </h4>
+<div class="flex gap-xs">
+<button class="p-xs hover:bg-surface-container-highest rounded"><span class="material-symbols-outlined text-[18px]">refresh</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</div>
+<div class="p-md grid grid-cols-2 gap-lg">
+<div class="space-y-md">
+<div>
+<div class="flex justify-between text-caption mb-xs">
+<span class="font-label-bold">Server Load (Accra Central)</span>
+<span class="">34%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-secondary-container w-[34%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-caption mb-xs">
+<span class="font-label-bold">API Latency</span>
+<span class="">124ms</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-[15%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-caption mb-xs">
+<span class="font-label-bold">Database Connections</span>
+<span class="">842/1000</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-tertiary w-[84%]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center items-center bg-surface-container-lowest border border-dashed border-outline rounded-lg p-md">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="#e1e2e4" stroke-width="8"></circle>
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="#bc0100" stroke-dasharray="251.2" stroke-dashoffset="50.24" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-headline-md text-primary">80%</span>
+</div>
+<p class="text-caption font-label-bold mt-sm text-center">Uptime (30 Days)</p>
+</div>
+</div>
+</div>
+<!-- Pending Verifications (Side Rail style) -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<div class="bento-card flex-1">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h4 class="font-label-bold text-on-surface">Verification Queue</h4>
+<span class="px-xs py-0.5 bg-primary text-on-primary text-[10px] rounded-full">12 NEW</span>
+</div>
+<div class="p-sm space-y-sm max-h-[300px] overflow-y-auto custom-scrollbar">
+<!-- Verification Item 1 -->
+<div class="p-sm rounded border border-outline-variant hover:bg-surface-container-low transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center font-black text-on-secondary-container">AA</div>
+<div>
+<p class="text-label-bold leading-none">Abena Amankwah</p>
+<p class="text-caption text-on-surface-variant">KNUST • Student</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-xs text-primary transition-opacity">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Verification Item 2 -->
+<div class="p-sm rounded border border-outline-variant hover:bg-surface-container-low transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-tertiary-container flex items-center justify-center font-black text-on-tertiary-container">KO</div>
+<div>
+<p class="text-label-bold leading-none">Kofi Owusu</p>
+<p class="text-caption text-on-surface-variant">UG • Alumnus</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-xs text-primary transition-opacity">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Verification Item 3 -->
+<div class="p-sm rounded border border-outline-variant hover:bg-surface-container-low transition-colors flex items-center justify-between group">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded bg-primary-fixed flex items-center justify-center font-black text-on-primary-fixed-variant">EM</div>
+<div>
+<p class="text-label-bold leading-none">Esi Mensah</p>
+<p class="text-caption text-on-surface-variant">UCC • Faculty</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-xs text-primary transition-opacity">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<div class="p-sm border-t border-outline-variant">
+<button class="w-full text-center text-caption font-label-bold text-primary hover:underline">View All Requests</button>
+</div>
+</div>
+</div>
+<!-- Large Data Table / Activity Feed -->
+<div class="col-span-12 bento-card overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div>
+<h4 class="font-headline-md text-headline-md leading-tight">Member Activity Stream</h4>
+<p class="text-caption text-on-surface-variant">Monitoring cross-university collaboration events.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-xs border-2 border-outline text-label-bold hover:bg-surface-container-high transition-colors">Filter</button>
+<button class="px-md py-xs bg-primary text-on-primary font-label-bold hover:brightness-110">Download CSV</button>
+</div>
+</div>
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-highest/50">
+<tr>
+<th class="px-md py-sm font-label-bold text-on-surface-variant text-caption uppercase">Event Source</th>
+<th class="px-md py-sm font-label-bold text-on-surface-variant text-caption uppercase">Action Type</th>
+<th class="px-md py-sm font-label-bold text-on-surface-variant text-caption uppercase">Timestamp</th>
+<th class="px-md py-sm font-label-bold text-on-surface-variant text-caption uppercase">Status</th>
+<th class="px-md py-sm font-label-bold text-on-surface-variant text-caption uppercase text-right">Intensity</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-md py-md font-label-bold">Career Fair #UG24</td>
+<td class="px-md py-md text-on-surface-variant">Resource Shared</td>
+<td class="px-md py-md text-caption">Oct 24, 2023 • 14:22</td>
+<td class="px-md py-md">
+<span class="px-sm py-0.5 bg-green-100 text-green-800 text-[10px] font-black rounded-full uppercase border border-green-200">Verified</span>
+</td>
+<td class="px-md py-md text-right font-black text-secondary">HIGH</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-md py-md font-label-bold">Networking Hub</td>
+<td class="px-md py-md text-on-surface-variant">New Peer Mentor</td>
+<td class="px-md py-md text-caption">Oct 24, 2023 • 13:05</td>
+<td class="px-md py-md">
+<span class="px-sm py-0.5 bg-yellow-100 text-yellow-800 text-[10px] font-black rounded-full uppercase border border-yellow-200">Pending</span>
+</td>
+<td class="px-md py-md text-right font-black text-on-surface-variant">MED</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-md py-md font-label-bold">Research Portal</td>
+<td class="px-md py-md text-on-surface-variant">External Collaboration</td>
+<td class="px-md py-md text-caption">Oct 24, 2023 • 11:40</td>
+<td class="px-md py-md">
+<span class="px-sm py-0.5 bg-green-100 text-green-800 text-[10px] font-black rounded-full uppercase border border-green-200">Verified</span>
+</td>
+<td class="px-md py-md text-right font-black text-primary">CRITICAL</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- System Health Ticker Footer -->
+
+</main>
+<script>
+        // Micro-interaction: Hover effects for Bento cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+
+
+</body></html>
